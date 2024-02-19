@@ -17,6 +17,6 @@ public class PlayerAirState : PlayerBaseState
     public override void Exit()
     {
         base.Exit();
-        StartAnimation(stateMachine.Player.AnimationData.AirParameterHash);
+        StopAnimation(stateMachine.Player.AnimationData.AirParameterHash);
     }
 }
