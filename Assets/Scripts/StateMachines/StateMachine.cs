@@ -26,6 +26,6 @@ public abstract class StateMachine
     }
     public void PhysicsUpdate()
     {
-        currentState?.PhsicsUpdate();
+        currentState?.PhysicsUpdate();
     }
 }

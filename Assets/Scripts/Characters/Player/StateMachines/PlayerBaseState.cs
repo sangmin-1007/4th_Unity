@@ -31,7 +31,7 @@ public class PlayerBaseState : IState
         ReadMovementInput();
     }
 
-    public virtual void PhsicsUpdate()
+    public virtual void PhysicsUpdate()
     {
 
     }
