@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerGroundedState : PlayerBaseState
 {
@@ -29,5 +30,22 @@ public class PlayerGroundedState : PlayerBaseState
     public override void PhsicsUpdate()
     {
         base.PhsicsUpdate();
+    }
+
+    protected override void OnMovementCanceld(InputAction.CallbackContext context)
+    {
+        if(stateMachine.MovementInput == Vector2.zero)
+        {
+            return;
+        }
+
+        stateMachine.ChangeState(stateMachine.IdleState);
+
+        base.OnMovementCanceld(context);
+    }
+
+    protected virtual void OnMove()
+    {
+        stateMachine.ChangeState(stateMachine.WalkState);
     }
 }

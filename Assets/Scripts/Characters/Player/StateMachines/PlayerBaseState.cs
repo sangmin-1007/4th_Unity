@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerBaseState : IState
@@ -45,10 +46,24 @@ public class PlayerBaseState : IState
     //
     protected virtual void AddInputActionsCallbacks()
     {
-
+        PlayerInput input = stateMachine.Player.Input;
+        input.PlayerActions.Movement.canceled += OnMovementCanceld;
+        input.PlayerActions.Run.started += OnRunStarted;
     }
 
     protected virtual void RemoveInputActionsCallbacks()
+    {
+        PlayerInput input = stateMachine.Player.Input;
+        input.PlayerActions.Movement.canceled -= OnMovementCanceld;
+        input.PlayerActions.Run.started -= OnRunStarted;
+    }
+
+    protected virtual void OnRunStarted(InputAction.CallbackContext context)
+    {
+
+    }
+
+    protected virtual void OnMovementCanceld(InputAction.CallbackContext context)
     {
 
     }
