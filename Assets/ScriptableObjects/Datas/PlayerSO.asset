@@ -38,4 +38,4 @@ MonoBehaviour:
       <ComboTransitionTime>k__BackingField: 0.8
       <ForceTransitionTime>k__BackingField: 0.1
       <Force>k__BackingField: 3
-      <Damage>k__BackingField: 5
+      <Damage>k__BackingField: 50
